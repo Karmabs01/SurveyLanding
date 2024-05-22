@@ -6,7 +6,6 @@
 
   .hero-image-col {
     display: flex;
-    justify-content: flex-end;
   }
   
   .hero-section .bg-img {
@@ -71,7 +70,9 @@
   }
   
   .hero-section .hero-content p {
+    font-size: 20px;
     margin-bottom: 40px;
+    line-height: 30px;
   }
   
   .hero-section .hero-shape .shape {

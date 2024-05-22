@@ -37,14 +37,12 @@ function ChildComponent() {
             <div className="col-lg-6">
               <div className="hero-content top-greadient">
                 <h1 className="wow fadeInUp" data-wow-delay=".4s">
-                  Make a Deposit and Boost Your Balance 
-                  <span className="common-gre-color">&nbsp;Instantly!</span>
+                  Make a Deposit and Boost Your Balance&nbsp;
+                  <span className="common-gre-color">Instantly!</span>
                 </h1>
 
                 <p> Thank you for completing our survey. To show our appreciation,
-                  we have an exciting offer just for you! Leave your contact
-                  information to receive:
-                </p>
+                  we have an exciting offer just for you!</p>
                 {/* <button
                   type="button"
                   className="main-btn btn-hover wow fadeInUp"
@@ -70,6 +68,7 @@ function ChildComponent() {
       <section id="advantages" className="advantages-one advertizers">
         <div className="container">
           <div className="section-title text-center">
+            <h3> Leave your contact information to receive:</h3>
           </div>
           <div className="row">
             <div className="item">
