@@ -1,0 +1,12 @@
+.form .MuiOutlinedInput-notchedOutline {
+ border-color: white !important;
+}
+
+.form .MuiFormLabel-root {
+  color: white !important;
+}
+
+.form h4 {
+    text-align: center;
+    padding-bottom: 30px;
+}

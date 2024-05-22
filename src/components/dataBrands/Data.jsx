@@ -1,206 +1,174 @@
-import { useEffect, useState, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import * as React from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+//Обычные белые иконки
+// import icon1 from "../../img/star.png";
+// import icon2 from "../../img/up.png";
+// import icon3 from "../../img/money.png";
+
+//Те же иконки, но цветные
+import icon1 from "../../img/star-colored.png";
+import icon2 from "../../img/up-colored.png";
+import icon3 from "../../img/money-colored.png";
+
 
 function ChildComponent() {
-  const [ipData, setIpData] = useState(null);
-  const [ipDataCode, setIpDataCode] = useState(null);
-  const [newUrl, setNewUrl] = useState("");
-  const [source, setSource] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("");
-
-  const { t, i18n } = useTranslation();
-  const selectRef = useRef(null);
-
-  const countryOptions = [
-    { code: "au", name: "Australia", flag: "🇦🇺" },
-    { code: "at", name: "Austria", flag: "🇦🇹" },
-    { code: "ca", name: "Canada", flag: "🇨🇦" },
-    { code: "fi", name: "Finland", flag: "🇫🇮" },
-    { code: "de", name: "Germany", flag: "🇩🇪" },
-    { code: "gr", name: "Greece", flag: "🇬🇷" },
-    { code: "ie", name: "Ireland", flag: "🇮🇪" },
-    { code: "it", name: "Italy", flag: "🇮🇹" },
-    { code: "nl", name: "Netherlands", flag: "🇳🇱" },
-    { code: "nz", name: "New Zealand", flag: "🇳🇿" },
-    { code: "no", name: "Norway", flag: "🇳🇴" },
-    { code: "pl", name: "Poland", flag: "🇵🇱" },
-    { code: "se", name: "Sweden", flag: "🇸🇪" },
-    { code: "ch", name: "Switzerland", flag: "🇨🇭" },
-    { code: "all", name: "World", flag: "🌍" },
-  ];
-  const countryOptions1043 = [
-    { code: "all", name: "World", flag: "🌍" }, 
-    { code: "ca", name: "Canada", flag: "🇨🇦" },
-    { code: "us", name: "United States", flag: "🇺🇸" },
-  ];
-  const countryOptions1044 = [
-    { code: "au", name: "Australia", flag: "🇦🇺" },
-    { code: "at", name: "Austria", flag: "🇦🇹" },
-    { code: "ca", name: "Canada", flag: "🇨🇦" },
-    { code: "fi", name: "Finland", flag: "🇫🇮" },
-    { code: "de", name: "Germany", flag: "🇩🇪" },
-    { code: "gb", name: "Great Britain", flag: "🇬🇧" },
-    { code: "gr", name: "Greece", flag: "🇬🇷" },
-    { code: "ie", name: "Ireland", flag: "🇮🇪" },
-    { code: "it", name: "Italy", flag: "🇮🇹" },
-    { code: "nl", name: "Netherlands", flag: "🇳🇱" },
-    { code: "no", name: "Norway", flag: "🇳🇴" },
-    { code: "nz", name: "New Zealand", flag: "🇳🇿" },
-    { code: "es", name: "Spain", flag: "🇪🇸" },
-    { code: "pl", name: "Poland", flag: "🇵🇱" },
-    { code: "se", name: "Sweden", flag: "🇸🇪" },
-    { code: "ch", name: "Switzerland", flag: "🇨🇭" },
-    { code: "us", name: "USA", flag: "🇺🇸" },
-    { code: "all", name: "World", flag: "🌍" },
-  ];
-
-  const countryOptions1039 = [
-    { code: "au", name: "Australia", flag: "🇦🇺" },
-    { code: "at", name: "Austria", flag: "🇦🇹" },
-    { code: "ca", name: "Canada", flag: "🇨🇦" },
-    { code: "fi", name: "Finland", flag: "🇫🇮" },
-    { code: "de", name: "Germany", flag: "🇩🇪" },
-    { code: "gb", name: "Great Britain", flag: "🇬🇧" },
-    { code: "gr", name: "Greece", flag: "🇬🇷" },
-    { code: "ie", name: "Ireland", flag: "🇮🇪" },
-    { code: "it", name: "Italy", flag: "🇮🇹" },
-    { code: "nl", name: "Netherlands", flag: "🇳🇱" },
-    { code: "no", name: "Norway", flag: "🇳🇴" },
-    { code: "nz", name: "New Zealand", flag: "🇳🇿" },
-    { code: "es", name: "Spain", flag: "🇪🇸" },
-    { code: "pl", name: "Poland", flag: "🇵🇱" },
-    { code: "se", name: "Sweden", flag: "🇸🇪" },
-    { code: "ch", name: "Switzerland", flag: "🇨🇭" },
-    { code: "all", name: "World", flag: "🌍" },
-  ];
-
-
-  useEffect(() => {
-    fetch(
-      "https://ipapi.co/json/?key=YD0x5VtXrPJkOcFQMjEyQgqjfM6jUcwS4J54b3DI8ztyrFpHzW"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setIpData(data.country_name);
-        setIpDataCode(data.country);
-        setSelectedCountry(data.country.toLowerCase());
-      })
-      .catch((error) => {
-        console.error("Ошибка при запросе к API:", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.delete("brand");
-    const currentSource = searchParams.get("keyword");
-    let sourceValue = "0";
-
-    if (currentSource) {
-      const match = currentSource.match(/partner(_)?\d+/);
-      if (match) {
-        sourceValue = match[0];
-        setSource(sourceValue);
-      } else {
-        setSource("0");
-      }
-    } else {
-      setSource("0");
-    }
-    searchParams.set("source", sourceValue);
-    searchParams.set("creative_id", "");
-    const queryString = `?${searchParams.toString()}`;
-    setNewUrl(queryString);
-  }, []);
-
-  const handleCountryChange = (country) => {
-    setSelectedCountry(country);
-    localStorage.setItem("selectedCountry", country);
-    document.documentElement.classList.remove("fixed-position");
-    console.log("handleCountryChange")
-
-  };
-
-  const handleMouseDown = () => {
-    document.documentElement.classList.add("fixed-position");
-    console.log("handleMouseDown")
-
-  };
-
-  const handleClickOutside = (event) => {
-    if (selectRef.current && !selectRef.current.contains(event.target)) {
-      document.documentElement.classList.remove("fixed-position");
-      console.log("handleClickOutside")
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div>
       <section id="home" className="hero-section go-zoom-1">
-      <div className="container">
-        <div className="top__color-overly-1 flaot-bob-y"></div>
-        <div className="top__color-overly-2 flaot-bob-x"></div>
-        <div className="top__color-overly-3 img-bounce"></div>
-        <div className="bg-img"></div>
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <div className="hero-content top-greadient">
-              <h1 className="wow fadeInUp" data-wow-delay=".4s">
-                Make a Deposit and Boost Your Balance
-                <span className="common-gre-color">Instantly!</span>
-              </h1>
-              <p className="wow fadeInUp" data-wow-delay=".6s">
-                Thank you for completing our survey. To show our appreciation,
-                we have an exciting offer just for you! Leave your contact
-                information to receive:
-              </p>
-              <ul className="wow fadeInUp" data-wow-delay=".6s">
-                <li>Exclusive Rewards Opportunities</li>
-                <li>Tips on Increasing Your Wealth</li>
-                <li>Updates on the Latest Games and Offers</li>
-              </ul>
-              <br />
+        <div className="container">
+          <div className="top__color-overly-1 flaot-bob-y"></div>
+          <div className="top__color-overly-2 flaot-bob-x"></div>
+          <div className="top__color-overly-3 img-bounce"></div>
+          <div className="bg-img"></div>
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className="hero-content top-greadient">
+                <h1 className="wow fadeInUp" data-wow-delay=".4s">
+                  Make a Deposit and Boost Your Balance 
+                  <span className="common-gre-color">&nbsp;Instantly!</span>
+                </h1>
 
-              <p className="wow fadeInUp" data-wow-delay=".6s">
-                Don't miss out on these amazing opportunities to double or even
-                triple your deposit! Enter your details below to start your
-                journey to greater rewards.
-              </p>
-              <button
-                type="button"
-                className="main-btn btn-hover wow fadeInUp"
-                data-bs-toggle="modal"
-                data-bs-target="#contact-form"
-              >
-                <i className="fal fa-plus"></i> Get reward!
-              </button>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="hero-img-container">
-              <div className="hero-img wow fadeInRight" data-wow-delay=".5s">
-                <img src={"../../../src/img/man.png"} alt="" />
+                <p> Thank you for completing our survey. To show our appreciation,
+                  we have an exciting offer just for you! Leave your contact
+                  information to receive:
+                </p>
+                {/* <button
+                  type="button"
+                  className="main-btn btn-hover wow fadeInUp"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contact-form"
+                >
+                  <i className="fal fa-plus"></i> Get reward!
+                </button> */}
               </div>
             </div>
+            <div className="col-lg-6 hero-image-col">
+              <div className="hero-img-container">
+                <div className="hero-img wow fadeInRight" data-wow-delay=".5s">
+                  <img src={"../../../src/img/man.png"} alt="" />
+                </div>
+              </div>
 
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="advantages" className="advantages-one advertizers">
+        <div className="container">
+          <div className="section-title text-center">
+          </div>
+          <div className="row">
+            <div className="item">
+              <div className="advantages-one__single">
+                <div className="advantages-one__icon">
+                  <img src={icon1} alt="" />
+                </div>
+                <h4 className="advantages-one__title">Exclusive Rewards Opportunities</h4>
+              </div>
+            </div>
+            <div className="item">
+              <div className="advantages-one__single">
+                <div className="advantages-one__icon">
+                  <img src={icon2} alt="" />
+                </div>
+                <h4 className="advantages-one__title">Tips on Increasing Your Wealth</h4>
+              </div>
+            </div>
+            <div className="item">
+              <div className="advantages-one__single">
+                <div className="advantages-one__icon">
+                  <img src={icon3} alt="" />
+                </div>
+                <h4 className="advantages-one__title">Updates on the Latest Games and Offers</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="form">
+        <div className='container'>
+          <h4 className="wow fadeInUp" data-wow-delay=".6s">
+            Don't miss out on these amazing opportunities to double or even
+            triple your deposit! Enter your details below to start your
+            journey to greater rewards.
+          </h4>
+          <Box component="form" noValidate sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="country"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="Country"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Telephone Number"
+                  name="phone"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="code"
+                  label="OTP Code"
+                  name="code"
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="outlined"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Get reward!
+            </Button>
+          </Box>
+        </div>
+      </section>
     </div>
   );
 }

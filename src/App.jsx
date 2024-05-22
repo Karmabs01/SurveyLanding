@@ -2,18 +2,6 @@ import { useState, useEffect } from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 
 import { Home } from "./components/Home/Home";
-import { Withdraw } from "./components/Withdraw/Withdraw";
-// import { Faq } from "./components/Faq/Faq";
-// import Tournament from "./components/Tournament/Tournament";
-import Terms from "./components/Terms/Terms";
-import Wheel from "./components/Wheel/Wheel";
-import Unsubscribed from "./components/Unsubscribed/Unsubscribed.jsx"
-
-import './i18n.js';
-// import LanguageSelector from './LanguageSelector.jsx'; 
-// import I18nInitializer from './i18n.js'; 
-
-
 
 
 

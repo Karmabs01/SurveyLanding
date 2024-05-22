@@ -1,9 +1,6 @@
-import { useEffect, useState, useRef } from "react";
-import { useTranslation } from "react-i18next";
+
 
 function ChildComponent() {
-
-    const { t } = useTranslation();
 
     return (
       <footer className="footer pt-115">
