@@ -106,7 +106,7 @@ function ChildComponent() {
             triple your deposit! Enter your details below to start your
             journey to greater rewards.
           </h4>
-          <Box component="form" noValidate sx={{ mt: 3 }}>
+          <Box component="form" sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -116,7 +116,6 @@ function ChildComponent() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>

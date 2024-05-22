@@ -2,8 +2,20 @@
  border-color: white !important;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+   -webkit-box-shadow: 0 0 0 30px #11023f inset !important;
+   -webkit-text-fill-color: #ffffff !important;
+}
+
 .form .MuiFormLabel-root {
-  color: white !important;
+  color: rgb(21, 114, 151) !important;
+}
+
+.form .MuiInputBase-root {
+  color: white;
 }
 
 .form h4 {
