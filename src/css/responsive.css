@@ -83,6 +83,26 @@
 }
 
 @media(max-width:767px) {
+
+    
+	.advantages-one .row {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+
+	.advantages-one .item {
+		min-width: 120px;
+		padding: 5px;
+	}
+
+	.advantages-one__title {
+		font-size: 14px;
+		font-weight: 300;
+		height: 30px;
+	}	
+
+	.advantages-one__icon img {
+		height: 90px !important;
+	}
   
   .navbar-nav .nav-item .sub-menu {
       position: relative;
