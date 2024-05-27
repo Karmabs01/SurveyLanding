@@ -1,4 +1,4 @@
-import logo from "../../../src/img/logo/logo-short.png";
+import logo from "../../../src/img/logo/Logo-opacity.png";
 
 function ChildComponent() {
 

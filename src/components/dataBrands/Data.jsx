@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import man from "../../../src/img/man.png";
 
 //Обычные белые иконки
 // import icon1 from "../../img/star.png";
@@ -99,7 +100,7 @@ function ChildComponent() {
         </div>
       </section>
 
-      <section className="form">
+      <section className="form mt-20">
         <div className='container'>
           <h4 className="wow fadeInUp" data-wow-delay=".6s">
             Don't miss out on these amazing opportunities to double or even
