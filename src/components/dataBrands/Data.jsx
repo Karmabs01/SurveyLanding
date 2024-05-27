@@ -115,7 +115,7 @@ function ChildComponent() {
           </div>
         </section>
 
-        <section className="form mt-20">
+        <section className="form-section mt-20">
           <div className='container'>
            
             <div className="row">
@@ -126,7 +126,9 @@ function ChildComponent() {
               journey to greater rewards.
             </h3>
             </div>
-            <Box component="form" className="col-lg-6" sx={{ mt: 3 }}>
+            <div className="form col-lg-6">
+              <h4>Let's meet!</h4>
+            <Box component="form" sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
@@ -185,6 +187,7 @@ function ChildComponent() {
                 Get reward!
               </Button>
             </Box>
+            </div>
           </div>
           </div>
         </section>

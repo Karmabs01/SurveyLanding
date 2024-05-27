@@ -300,7 +300,7 @@ function ModalWindow() {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={modalStyle}>
+      <Box className="modal-view" sx={modalStyle}>
         <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
           {steps.map((label) => (
             <Step key={label}>

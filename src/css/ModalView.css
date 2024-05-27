@@ -1,5 +1,5 @@
 .ModalView .Mui-focused {
-    color: rgba(0, 0, 0, 0.6) !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .ModalView .MuiFormControl-root {
@@ -16,9 +16,27 @@
     justify-content: space-around;
 }
 
-.ModalView .MuiTypography-root {
+.ModalView .MuiTypography-root, .ModalView .MuiStepLabel-label, .ModalView .MuiFormLabel-root {
+
+    color: #ffffff !important;
+}
+
+.ModalView .Mui-completed {
+    color: #ffffff80 !important;
+}
+
+.ModalView .MuiButtonBase-root {
+    color: #ffffff !important;
+}
+
+.ModalView .MuiTypography-root{
     padding-top: 30px !important;
     text-align: center;
     width: 100%;
-    color: #00000083;
+}
+
+.ModalView .modal-view {
+    background: url(../img/sky.png) no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 10px 10px rgba(76, 6, 122, 0.397);
 }
