@@ -22,3 +22,10 @@ input:-webkit-autofill:active{
     text-align: center;
     padding-bottom: 30px;
 }
+
+.form-banner {
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  background: url("../img/man.PNG") no-repeat;
+}

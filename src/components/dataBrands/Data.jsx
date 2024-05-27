@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ModalWindow from "../ModalWindow"
+import ModalWindow from "../ModalView"
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -117,14 +117,18 @@ function ChildComponent() {
 
         <section className="form mt-20">
           <div className='container'>
-            <h4 className="wow fadeInUp" data-wow-delay=".6s">
+           
+            <div className="row">
+            <div className="form-banner col-lg-6">
+            <h3>
               Don't miss out on these amazing opportunities to double or even
               triple your deposit! Enter your details below to start your
               journey to greater rewards.
-            </h4>
-            <Box component="form" sx={{ mt: 3 }}>
+            </h3>
+            </div>
+            <Box component="form" className="col-lg-6" sx={{ mt: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     autoComplete="given-name"
                     name="firstName"
@@ -134,7 +138,7 @@ function ChildComponent() {
                     label="First Name"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     name="country"
                     required
@@ -143,7 +147,7 @@ function ChildComponent() {
                     label="Country"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
@@ -153,7 +157,7 @@ function ChildComponent() {
                     autoComplete="email"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
@@ -162,7 +166,7 @@ function ChildComponent() {
                     name="phone"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
@@ -181,6 +185,7 @@ function ChildComponent() {
                 Get reward!
               </Button>
             </Box>
+          </div>
           </div>
         </section>
       </div>

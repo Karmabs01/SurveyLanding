@@ -14,7 +14,7 @@
 @import url(hero.css);
 @import url(advantages.css);
 @import url(form.css);
-@import url(modalWindow.css);
+@import url(ModalView.css);
 
 html {
   scroll-behavior: smooth;
