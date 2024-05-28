@@ -1,8 +1,8 @@
-.ModalView .Mui-focused {
+.ModalView-section .Mui-focused {
     color: rgb(255, 255, 255) !important;
 }
 
-.ModalView .MuiFormControl-root {
+.ModalView-section .MuiFormControl-root {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -12,31 +12,56 @@
     width: 100%;
 }
 
-.ModalView .MuiFormGroup-root {
+.ModalView-section .MuiFormGroup-root {
     justify-content: space-around;
 }
 
-.ModalView .MuiTypography-root, .ModalView .MuiStepLabel-label, .ModalView .MuiFormLabel-root {
+.ModalView-section .MuiTypography-root, .ModalView-section .MuiStepLabel-label, .ModalView-section .MuiFormLabel-root {
 
     color: #ffffff !important;
 }
 
-.ModalView .Mui-completed {
+.ModalView-section .Mui-completed {
     color: #ffffff80 !important;
 }
 
-.ModalView .MuiButtonBase-root {
+.ModalView-section .MuiButtonBase-root {
     color: #ffffff !important;
 }
 
-.ModalView .MuiTypography-root{
+.ModalView-section .MuiTypography-root{
     padding-top: 30px !important;
     text-align: center;
     width: 100%;
 }
 
-.ModalView .modal-view {
+.ModalView-section .modal-view {
     background: url(../img/sky.png) no-repeat;
     background-size: cover;
     box-shadow: 0 0 10px 10px rgba(76, 6, 122, 0.397);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    padding: 32px;
+}
+
+
+@media (max-width: 768px) {
+    .ModalView-section .modal-view {
+        max-width: 90% !important;
+    }
+}
+  
+
+@media (max-width: 550px) {
+    .ModalView-section .modal-view {
+        width: 600px !important;
+    }
+}
+
+.ModalView-section .MuiModal-backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 30, 0.678);
 }

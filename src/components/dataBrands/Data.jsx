@@ -30,6 +30,7 @@ import icon3 from "../../img/money-colored.png";
 
 
 function ChildComponent() {
+
   // const [isAsked, setIsAsked] = useState(localStorage.getItem('cashRewardIsAsked'));
   const [isAsked, setIsAsked] = useState(false); //for testing
   
