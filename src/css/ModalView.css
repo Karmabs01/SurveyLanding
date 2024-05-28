@@ -16,18 +16,18 @@
     justify-content: space-around;
 }
 
+.ModalView-section .Mui-completed, .ModalView-section .Mui-disabled{
+    color: #ffffff80 !important;
+}
+
 .ModalView-section .MuiTypography-root, .ModalView-section .MuiStepLabel-label, .ModalView-section .MuiFormLabel-root {
 
     color: #ffffff !important;
 }
 
-.ModalView-section .Mui-completed {
-    color: #ffffff80 !important;
-}
-
-.ModalView-section .MuiButtonBase-root {
+/* .ModalView-section .MuiButtonBase-root {
     color: #ffffff !important;
-}
+} */
 
 .ModalView-section .MuiTypography-root{
     padding-top: 30px !important;

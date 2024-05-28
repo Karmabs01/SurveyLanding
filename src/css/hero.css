@@ -1,7 +1,12 @@
 .hero-section {
     position: relative;
     z-index: 1;
-    padding: 220px 0 87px;
+    padding: 180px 0 87px;
+  }
+
+  .hero-section h3{
+    text-align: center;
+    padding-top: 50px;
   }
 
   .hero-image-col {
@@ -27,6 +32,7 @@
     position: relative;
     display: inline-block;
     margin: auto;
+    
   }
   
   .hero-img {
@@ -51,7 +57,7 @@
     z-index: -1;
   }
   
-  .hero-section .hero-content span {
+  .hero-section .hero-content span:not(.form span) {
     font-family: "Nunito Sans", sans-serif;
     font-size: 30px;
     font-weight: 800;

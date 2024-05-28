@@ -141,6 +141,9 @@ function ModalWindow() {
   //Работа степпера
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const initialAnswers = ['welcome', '', '', '', '', ''];
+  const [answers, setAnswers] = useState(initialAnswers);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -150,19 +153,16 @@ function ModalWindow() {
   };
 
   const [open, setOpen] = React.useState(true);
+  const isNextDisabled = answers[activeStep] === '';
 
-  //Рендеринг степ-контента
-  const [first, setFirst] = React.useState('yes');
-  const [second, setSecond] = React.useState('yes');
-  const [third, setThird] = React.useState('yes');
-  const [forth, setForth] = React.useState('yes');
-  const [fifth, setFifth] = React.useState('yes');
+  //Рендеринг
 
-  const changeFirstValue = (event) => { setFirst(event.target.value) }
-  const changeSecondValue = (event) => { setSecond(event.target.value) }
-  const changeThirdValue = (event) => { setThird(event.target.value) }
-  const changeForthValue = (event) => { setForth(event.target.value) }
-  const changeFifthValue = (event) => { setFifth(event.target.value) }
+  const handleChange = (event) => {
+    const newAnswers = [...answers];
+    newAnswers[activeStep] = event.target.value;
+    setAnswers(newAnswers);
+    console.log(newAnswers)
+  };
 
   const handleClose = () => {
     localStorage.setItem('cashRewardIsAsked', true);
@@ -183,8 +183,8 @@ function ModalWindow() {
               row
               aria-labelledby="first"
               name="first"
-              value={first}
-              onChange={changeFirstValue}
+              value={answers[activeStep]}
+              onChange={handleChange}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes" labelPlacement="top" />
               <FormControlLabel value="no" control={<Radio />} label="No" labelPlacement="top" />
@@ -199,8 +199,8 @@ function ModalWindow() {
               row
               aria-labelledby="second"
               name="second"
-              value={second}
-              onChange={changeSecondValue}
+              value={answers[activeStep]}
+              onChange={handleChange}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes" labelPlacement="top" />
               <FormControlLabel value="no" control={<Radio />} label="No" labelPlacement="top" />
@@ -215,8 +215,8 @@ function ModalWindow() {
               row
               aria-labelledby="third"
               name="third"
-              value={third}
-              onChange={changeThirdValue}
+              value={answers[activeStep]}
+              onChange={handleChange}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes" labelPlacement="top" />
               <FormControlLabel value="no" control={<Radio />} label="No" labelPlacement="top" />
@@ -231,8 +231,8 @@ function ModalWindow() {
               row
               aria-labelledby="forth"
               name="forth"
-              value={forth}
-              onChange={changeForthValue}
+              value={answers[activeStep]}
+              onChange={handleChange}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes" labelPlacement="top" />
               <FormControlLabel value="no" control={<Radio />} label="No" labelPlacement="top" />
@@ -247,8 +247,8 @@ function ModalWindow() {
               row
               aria-labelledby="fifth"
               name="fifth"
-              value={fifth}
-              onChange={changeFifthValue}
+              value={answers[activeStep]}
+              onChange={handleChange}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes" labelPlacement="top" />
               <FormControlLabel value="no" control={<Radio />} label="No" labelPlacement="top" />
@@ -302,11 +302,11 @@ function ModalWindow() {
                         </Button>
                         <Box sx={{ flex: '1 1 auto' }} />
                         {activeStep === steps.length - 1 ? (
-                          <Button onClick={handleClose}>
+                          <Button onClick={handleClose} disabled={isNextDisabled}>
                             Finish
                           </Button>
                         ) : (
-                          <Button onClick={handleNext}>
+                          <Button onClick={handleNext} disabled={isNextDisabled}>
                             Next
                           </Button>
                         )}
@@ -350,7 +350,7 @@ function ModalWindow() {
                     Back
                   </Button>
                   <Box sx={{ flex: '1 1 auto' }} />
-                  <Button onClick={handleNext}>
+                  <Button onClick={handleNext} disabled={isNextDisabled}>
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                   </Button>
                 </Box>
