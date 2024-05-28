@@ -128,7 +128,6 @@ function ChildComponent() {
             </h3>
             </div>
             <div className="form col-lg-6">
-              <h4>Let's meet!</h4>
             <Box component="form" sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
