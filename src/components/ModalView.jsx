@@ -280,6 +280,7 @@ function ModalWindow() {
                 <StepContent>
                   {activeStep === steps.length ? (
                     <React.Fragment>
+                      <div className='stepper-content'>
                       <Typography sx={{ mt: 2, mb: 1 }}>
                         Thanks!
                       </Typography>
@@ -287,10 +288,13 @@ function ModalWindow() {
                         <Box sx={{ flex: '1 1 auto' }} />
                         <Button onClick={handleClose}>Close</Button>
                       </Box>
+                      </div>
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
+                      <div className='stepper-content'>
                       {renderStepContent(activeStep)}
+                      </div>
                       <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Button
                           color="inherit"
@@ -329,17 +333,21 @@ function ModalWindow() {
             </Stepper>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                  Thanks!
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                  <Box sx={{ flex: '1 1 auto' }} />
-                  <Button onClick={handleClose}>Close</Button>
-                </Box>
-              </React.Fragment>
+              <div className='stepper-content'>
+              <Typography sx={{ mt: 2, mb: 1 }}>
+                Thanks!
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                <Box sx={{ flex: '1 1 auto' }} />
+                <Button onClick={handleClose}>Close</Button>
+              </Box>
+              </div>
+            </React.Fragment>
             ) : (
               <React.Fragment>
-                {renderStepContent(activeStep)}
+                <div className='stepper-content'>
+                      {renderStepContent(activeStep)}
+                </div>
                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                   <Button
                     color="inherit"
