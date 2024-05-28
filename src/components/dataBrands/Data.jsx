@@ -15,7 +15,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-// import {man} from "../../../src/img/man.png";
+import man from "../../img/man.png";
 
 //Обычные белые иконки
 // import icon1 from "../../img/star.png";
@@ -73,7 +73,7 @@ function ChildComponent() {
               <div className="col-lg-6 hero-image-col">
                 <div className="hero-img-container">
                   <div className="hero-img wow fadeInRight" data-wow-delay=".5s">
-                    <img src={"../../../src/img/man.png"} alt="" />
+                    <img src={man} alt="" />
                   </div>
                 </div>
 
